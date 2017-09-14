@@ -12,24 +12,27 @@
 
         var playing = true;
 
-        function getRandomInt(min, max) {
-            min = Math.ceil(min);
-            max = Math.floor(max);
-            return Math.floor(Math.random() * (max - min)) + min;
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
         }
 
         //Split words letters
-        function Scramble(word) {
+        function scramble(word) {
             wordList = word.split('');
             console.log(wordList)
 
-            scrambled_word = []
+            scrambledWord = []
 
             //generate random number between 0 and word length-1
-            for (var i = 0; i < wordList.length, i++) {
-                index = getRandomInt(0, wordList.length)
-
+            while (wordList.length > 0) {
+                for (var i = 0; i < wordList.length; i++) {
+                    index = getRandomInt(wordList.length)
+                    scrambledWord += wordList.splice(index, 1)
+                    console.log(scrambledWord)
+                }
             }
+            console.log(typeof scrambledWord)
+            return scrambledWord
             // and use random number to index letter in word list
             // pop letter from word list and add to scrambled word
             //when done, join words and return string
@@ -44,12 +47,12 @@
 
 
             // Grab a random word from the WORDS array.
-            var randomInt = getRandomInt(0,4);
+            var randomInt = getRandomInt(WORDS.length);
 
             var randomWord = WORDS[randomInt];
 
             // Grab the corresponding scrambled word from the SCRAMBLED array.
-            var randomScramble = SCRAMBLED[randomInt];
+            var randomScramble = scramble(randomWord);
 
             // Prompt the user to guess the original word when given the scrambled word.
             // If the user guesses wrong, tell them they were wrong and show the right word.
