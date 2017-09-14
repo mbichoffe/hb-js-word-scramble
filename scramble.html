@@ -12,16 +12,59 @@
 
         var playing = true;
 
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+
+        //Split words letters
+        function Scramble(word) {
+            wordList = word.split('');
+            console.log(wordList)
+
+            scrambled_word = []
+
+            //generate random number between 0 and word length-1
+            for (var i = 0; i < wordList.length, i++) {
+                index = getRandomInt(0, wordList.length)
+
+            }
+            // and use random number to index letter in word list
+            // pop letter from word list and add to scrambled word
+            //when done, join words and return string
+
+        };
+
+
+
+
+
         while (playing) {
 
+
             // Grab a random word from the WORDS array.
+            var randomInt = getRandomInt(0,4);
+
+            var randomWord = WORDS[randomInt];
 
             // Grab the corresponding scrambled word from the SCRAMBLED array.
+            var randomScramble = SCRAMBLED[randomInt];
 
             // Prompt the user to guess the original word when given the scrambled word.
-
             // If the user guesses wrong, tell them they were wrong and show the right word.
-            
+
+            var guess = prompt("This is the word to de-scramble:" +' ' + randomScramble).toLowerCase().trim();
+
+            // var guess = guess.toLowerCase().trim();
+
+            if (guess === randomWord){
+                alert("You guessed right!");
+            } else {
+                alert("D'OH");
+            }
+
+
             // If the user guesses the correct word, congratulate them.
 
             playing = confirm("Press OK To keep playing or Cancel to quit");
@@ -32,6 +75,6 @@
 
         alert("goodbye!");
     </script>
-    
+
 </body>
 </html>
