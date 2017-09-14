@@ -19,10 +19,8 @@
         //Split words letters
         function scramble(word) {
             wordList = word.split('');
-            console.log(wordList)
 
             scrambledWord = []
-
             //generate random number between 0 and word length-1
             while (wordList.length > 0) {
                 for (var i = 0; i < wordList.length; i++) {
@@ -31,7 +29,6 @@
                     console.log(scrambledWord)
                 }
             }
-            console.log(typeof scrambledWord)
             return scrambledWord
             // and use random number to index letter in word list
             // pop letter from word list and add to scrambled word
